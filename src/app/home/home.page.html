@@ -1,20 +1,123 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>TaskApp</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <h2>Gestor de Tareas</h2>
+
+  <!-- FORMULARIO PARA CREAR TAREA -->
+  <div *ngIf="mostrarFormulario">
+
+    <h2>Nueva Tarea</h2>
+
+    <form [formGroup]="formulario" (ngSubmit)="guardarTarea()">
+
+      <ion-item>
+        <ion-label position="stacked">Título</ion-label>
+        <input
+          type="text"
+          formControlName="titulo"
+          placeholder="Escribe el título">
+      </ion-item>
+
+      <p *ngIf="formulario.get('titulo')?.invalid && formulario.get('titulo')?.touched">
+        El título es obligatorio y debe tener mínimo 5 caracteres.
+      </p>
+
+      <ion-item>
+        <ion-label position="stacked">Descripción</ion-label>
+        <input
+          type="text"
+          formControlName="descripcion"
+          placeholder="Escribe una descripción">
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Prioridad</ion-label>
+
+        <select formControlName="prioridad">
+          <option value="Alta">Alta</option>
+          <option value="Media">Media</option>
+          <option value="Baja">Baja</option>
+        </select>
+
+      </ion-item>
+
+      <ion-button expand="block" type="submit">
+        Guardar tarea
+      </ion-button>
+
+      <ion-button
+        expand="block"
+        fill="outline"
+        type="button"
+        (click)="cancelarFormulario()">
+        Cancelar
+      </ion-button>
+
+    </form>
+
   </div>
+
+
+  <!-- LISTA DE TAREAS -->
+  <div *ngIf="!mostrarFormulario">
+
+    <p *ngIf="tareas.length === 0">
+      No hay tareas todavía.
+    </p>
+
+    <ion-list>
+
+      <ion-item *ngFor="let tarea of tareas">
+
+        <ion-checkbox
+          slot="start"
+          [checked]="tarea.completada"
+          (ionChange)="cambiarEstado(tarea.id)">
+        </ion-checkbox>
+
+        <ion-label>
+
+          <h2
+            [style.text-decoration]="tarea.completada ? 'line-through' : 'none'">
+            {{ tarea.titulo }}
+          </h2>
+
+          <p>{{ tarea.descripcion }}</p>
+
+          <p>Prioridad: {{ tarea.prioridad }}</p>
+
+        </ion-label>
+
+        <ion-button
+          slot="end"
+          fill="clear"
+          (click)="eliminarTarea(tarea.id)">
+          Eliminar
+        </ion-button>
+
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+
+
+  <!-- BOTÓN + -->
+  <ion-fab
+    *ngIf="!mostrarFormulario"
+    slot="fixed"
+    vertical="bottom"
+    horizontal="end">
+
+    <ion-fab-button (click)="mostrarCrearTarea()">
+      +
+    </ion-fab-button>
+
+  </ion-fab>
+
 </ion-content>

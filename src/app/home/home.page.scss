@@ -1,27 +1,313 @@
-#container {
+/* ============================= */
+/* FONDO GENERAL */
+/* ============================= */
+
+ion-content {
+  --background: #111827;
+  color: #f9fafb;
+}
+
+
+/* ============================= */
+/* TITULO PRINCIPAL */
+/* ============================= */
+
+ion-content > h2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #ffffff;
+
+  margin: 15px 0 5px;
+
+  letter-spacing: -0.5px;
+}
+
+ion-content > p {
+  color: #9ca3af;
+  font-size: 15px;
+}
+
+
+/* ============================= */
+/* LISTA DE TAREAS */
+/* ============================= */
+
+ion-list {
+  background: transparent;
+  padding: 10px 0;
+}
+
+
+/* ============================= */
+/* TARJETAS DE TAREAS */
+/* ============================= */
+
+ion-item {
+  --background: #1f2937;
+  --border-color: transparent;
+
+  --padding-start: 14px;
+  --padding-end: 10px;
+
+  margin-bottom: 12px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20);
+}
+
+
+/* ============================= */
+/* TITULO DE LA TAREA */
+/* ============================= */
+
+ion-item h2 {
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  margin-bottom: 6px;
+}
+
+
+/* ============================= */
+/* DESCRIPCION */
+/* ============================= */
+
+ion-item p {
+  color: #9ca3af;
+
+  font-size: 14px;
+
+  margin: 5px 0;
+}
+
+
+/* ============================= */
+/* CHECKBOX */
+/* ============================= */
+
+ion-checkbox {
+  --size: 23px;
+
+  --checkbox-background: #1f2937;
+  --checkbox-background-checked: #22c55e;
+
+  --border-color: #6b7280;
+  --border-color-checked: #22c55e;
+
+  margin-right: 12px;
+}
+
+
+/* ============================= */
+/* PRIORIDAD */
+/* ============================= */
+
+.prioridad {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 8px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+/* Texto "Prioridad:" */
+
+.prioridad > span:first-child {
+  color: #9ca3af;
+}
+
+
+/* ============================= */
+/* BADGES */
+/* ============================= */
+
+.badge {
+  padding: 4px 10px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  display: inline-block;
+}
+
+
+/* PRIORIDAD ALTA */
+
+.badge.alta {
+  background: rgba(239, 68, 68, 0.15);
+
+  color: #f87171;
+
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+
+/* PRIORIDAD MEDIA */
+
+.badge.media {
+  background: rgba(245, 158, 11, 0.15);
+
+  color: #fbbf24;
+
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+
+/* PRIORIDAD BAJA */
+
+.badge.baja {
+  background: rgba(34, 197, 94, 0.15);
+
+  color: #4ade80;
+
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+
+/* ============================= */
+/* BOTON ELIMINAR */
+/* ============================= */
+
+ion-button {
+  --color: #f87171;
+
+  font-weight: 600;
+
+  font-size: 13px;
+}
+
+
+/* ============================= */
+/* FORMULARIO */
+/* ============================= */
+
+form {
+  background: #1f2937;
+
+  padding: 20px;
+
+  margin-top: 18px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ============================= */
+/* ELEMENTOS DEL FORMULARIO */
+/* ============================= */
+
+form ion-item {
+  --background: #111827;
+
+  border: 1px solid #374151;
+
+  box-shadow: none;
+
+  margin-bottom: 14px;
+}
+
+
+/* ============================= */
+/* INPUTS */
+/* ============================= */
+
+input,
+select {
+  width: 100%;
+
+  padding: 13px;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 16px;
+}
+
+
+/* ============================= */
+/* PLACEHOLDER */
+/* ============================= */
+
+input::placeholder {
+  color: #6b7280;
+
+  opacity: 1;
+}
+
+
+/* ============================= */
+/* SELECT */
+/* ============================= */
+
+select {
+  color: #ffffff;
+
+  background: #111827;
+}
+
+
+/* ============================= */
+/* BOTONES DEL FORMULARIO */
+/* ============================= */
+
+form ion-button {
+  margin-top: 12px;
+
+  height: 48px;
+
+  --border-radius: 14px;
+
+  font-weight: 700;
+}
+
+
+/* ============================= */
+/* BOTON FLOTANTE + */
+/* ============================= */
+
+ion-fab-button {
+  --background: #22c55e;
+
+  --background-activated: #16a34a;
+
+  --color: #ffffff;
+
+  --box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+
+  font-size: 28px;
+
+  font-weight: 300;
+}
+
+
+/* ============================= */
+/* MENSAJE SIN TAREAS */
+/* ============================= */
+
+p[ng-reflect-ng-if] {
   text-align: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  margin-top: 50px;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+  color: #9ca3af;
 }

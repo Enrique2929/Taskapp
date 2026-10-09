@@ -9,16 +9,17 @@ Mini proyecto desarrollado con **Ionic y Angular** para crear y administrar tare
 
 ## Clonar y ejecutar
 
-Desde una terminal, clona el repositorio de GitHub y entra a la carpeta del proyecto:
+Instala Ionic CLI una sola vez y, luego, clona el proyecto e instala sus dependencias:
 
 ```bash
+npm install -g @ionic/cli
 git clone https://github.com/Enrique2929/Taskapp.git
 cd Taskapp
 npm ci
-npm start
+ionic serve
 ```
 
-Abre en el navegador la dirección local que muestre Angular CLI (normalmente `http://localhost:4200`). El comando clona el proyecto en una carpeta llamada `Taskapp`, por lo que los siguientes comandos funcionan tal cual.
+`ionic serve` inicia el servidor de desarrollo de Ionic, observa los cambios en el código y recarga la aplicación. La terminal muestra la dirección local que debes abrir en el navegador. También puedes usar `npm start`, que ejecuta `ng serve` según el script definido en `package.json`. Consulta la [instalación de Ionic CLI](https://ionicframework.com/docs/cli) y la documentación de [`ionic serve`](https://ionicframework.com/docs/cli/commands/serve).
 
 ## Estructura del proyecto
 
@@ -86,7 +87,8 @@ La ruta `/home` carga la pantalla principal. La ruta raíz (`/`) redirige a `/ho
 ## Comandos disponibles
 
 ```bash
-npm start       # Inicia el servidor de desarrollo
+ionic serve    # Inicia el servidor local de desarrollo de Ionic
+npm start       # Alternativa: ejecuta ng serve
 npm run build   # Compila la aplicación
 npm test        # Ejecuta las pruebas configuradas
 npm run lint    # Revisa el código con ESLint
@@ -95,5 +97,6 @@ npm run lint    # Revisa el código con ESLint
 ## Persistencia
 
 Las tareas se guardan en `localStorage` del navegador. Por eso permanecen al recargar la aplicación en el mismo navegador y dispositivo, pero no se sincronizan con otros dispositivos ni con una base de datos remota. Para empezar con una lista limpia, se puede borrar la clave `tareas` desde las herramientas de almacenamiento del navegador.
+
 
 
